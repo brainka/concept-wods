@@ -1,7 +1,9 @@
+const express = require('express');
 const axios = require('axios');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const WorkoutData = require('./models/WorkoutData');
+const workoutRoutes = require('./routes/workoutRoutes');
 
 dotenv.config();
 
@@ -32,9 +34,25 @@ const fetchDataAndSave = async () => {
 			console.log('API response error', error.response);
 		} else if (error.request) {
 			console.log('API requre error', error.request);
-		} else P;
+		} else;
 		console.log('General error', error.message);
 	}
 };
 
 fetchDataAndSave();
+
+// const app = express();
+// const port = process.env.PORT || 6000;
+
+// app.use(express.json());
+
+// mongoose
+// 	.connect(process.env.MONGO_URI)
+// 	.then(() => console.log('MONGO DB Connected'))
+// 	.catch((err) => console.log('MONGO DB Connection error', err.message));
+
+// app.use('/api', workoutRoutes);
+
+// app.listen(port, () => {
+// 	console.log(`Server is running on ${port}`);
+// });
